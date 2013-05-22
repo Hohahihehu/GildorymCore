@@ -2,3 +2,4 @@ name: GildorymCore
 author: Lucariatias
 version: 0.0.1
 main: com.gildorymrp.core.GildorymCore
+depend: [GildorymAPI]
