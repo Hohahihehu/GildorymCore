@@ -1,10 +1,22 @@
 package com.gildorymrp.core.feat;
 
-public class BlindFight extends ActiveFeat {
+import com.gildorymrp.api.plugin.core.ActiveFeat;
+import com.gildorymrp.api.plugin.core.Character;
+
+public class BlindFight implements ActiveFeat {
+
+	@Override
+	public String getDescription() {
+		return "Allows you to reroll once if you miss due to blindness";
+	}
+
+	@Override
+	public boolean hasPrerequisites(Character character) {
+		return true;
+	}
 	
-	public static final String DESCRIPTION = "Allows you to reroll once if you miss due to blindness";
-	
-	public Boolean isFighterBonusFeat() {
+	@Override
+	public boolean isFighterBonusFeat() {
 		return true;
 	}
 

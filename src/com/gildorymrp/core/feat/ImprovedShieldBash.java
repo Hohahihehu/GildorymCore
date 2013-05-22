@@ -1,12 +1,18 @@
 package com.gildorymrp.core.feat;
 
-import com.gildorymrp.core.GildorymCharacter;
+import com.gildorymrp.api.plugin.core.ActiveFeat;
+import com.gildorymrp.api.plugin.core.Character;
+import com.gildorymrp.api.plugin.core.Feat;
 
-public class ImprovedShieldBash extends ActiveFeat {
+public class ImprovedShieldBash implements ActiveFeat {
 	
-	public static final String DESCRIPTION = "When you perform a shield bash, you may still apply the shield's shield bonus to your AC.";
+	@Override
+	public String getDescription() {
+		return "When you perform a shield bash, you may still apply the shield's shield bonus to your AC.";
+	}
 	
-	public Boolean hasPrerequisites(GildorymCharacter character) {
+	@Override
+	public boolean hasPrerequisites(Character character) {
 		for (Feat feat : character.getFeats()) {
 			if (feat instanceof ShieldProficiency) {
 				return true;
@@ -15,7 +21,8 @@ public class ImprovedShieldBash extends ActiveFeat {
 		return false;
 	}
 	
-	public Boolean isFighterBonusFeat() {
+	@Override
+	public boolean isFighterBonusFeat() {
 		return true;
 	}
 

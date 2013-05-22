@@ -1,11 +1,33 @@
 package com.gildorymrp.core.feat;
 
-public class GreaterWeaponFocus extends PassiveFeat {
+import java.util.HashMap;
+import java.util.Map;
+
+import com.gildorymrp.api.plugin.core.Character;
+import com.gildorymrp.api.plugin.core.PassiveFeat;
+import com.gildorymrp.api.plugin.core.Skill;
+
+public class GreaterWeaponFocus implements PassiveFeat {
 	
-	public static final String DESCRIPTION = "WIP feat";
-	
-	public Boolean hasPrerequisites() {
+	@Override
+	public String getDescription() {
+		return "WIP feat";
+	}
+
+	@Override
+	public boolean hasPrerequisites(Character character) {
 		return false;
+	}
+
+	@Override
+	public boolean isFighterBonusFeat() {
+		return false;
+	}
+
+	@Override
+	public Map<Skill, Integer> getStatBonuses() {
+		Map<Skill, Integer> statBonuses = new HashMap<Skill, Integer>();
+		return statBonuses;
 	}
 
 }

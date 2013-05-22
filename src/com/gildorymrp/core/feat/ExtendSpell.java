@@ -1,12 +1,22 @@
 package com.gildorymrp.core.feat;
 
-import com.gildorymrp.core.GildorymCharacter;
+import com.gildorymrp.api.plugin.core.ActiveFeat;
+import com.gildorymrp.api.plugin.core.Character;
 
-public class ExtendSpell extends ActiveFeat {
+public class ExtendSpell implements ActiveFeat {
 	
-public static final String DESCRIPTION = "WIP feat";
+	@Override
+	public String getDescription() {
+		return "WIP feat";
+	}
 	
-	public Boolean hasPrerequisites(GildorymCharacter character) {
+	@Override
+	public boolean hasPrerequisites(Character character) {
+		return false;
+	}
+
+	@Override
+	public boolean isFighterBonusFeat() {
 		return false;
 	}
 

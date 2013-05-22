@@ -1,12 +1,18 @@
 package com.gildorymrp.core.feat;
 
-import com.gildorymrp.core.GildorymCharacter;
+import com.gildorymrp.api.plugin.core.ActiveFeat;
+import com.gildorymrp.api.plugin.core.Character;
+import com.gildorymrp.api.plugin.core.Feat;
 
-public class GreatCleave extends ActiveFeat {
+public class GreatCleave implements ActiveFeat {
 	
-	public static final String DESCRIPTION = "If you use Cleave to drop an enemy, you may use Cleave again. There is no limit on how many times you can use this.";
+	@Override
+	public String getDescription() {
+		return "If you use Cleave to drop an enemy, you may use Cleave again. There is no limit on how many times you can use this.";
+	}
 	
-	public Boolean hasPrerequisites(GildorymCharacter character) {
+	@Override
+	public boolean hasPrerequisites(Character character) {
 		if (character.getStrength() >= 13 && character.getAttackBonus() >= 4) {
 			for (Feat feat : character.getFeats()) {
 				if (feat instanceof Cleave) {
@@ -17,7 +23,8 @@ public class GreatCleave extends ActiveFeat {
 		return false;
 	}
 
-	public Boolean isFighterBonusFeat() {
+	@Override
+	public boolean isFighterBonusFeat() {
 		return true;
 	}
 

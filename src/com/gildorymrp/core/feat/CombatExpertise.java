@@ -1,19 +1,25 @@
 package com.gildorymrp.core.feat;
 
-import com.gildorymrp.core.GildorymCharacter;
+import com.gildorymrp.api.plugin.core.ActiveFeat;
+import com.gildorymrp.api.plugin.core.Character;
 
-public class CombatExpertise extends ActiveFeat {
+public class CombatExpertise implements ActiveFeat {
 	
-	public static final String DESCRIPTION = "You may take up to 5 points off your attack and put them onto your AC";
+	@Override
+	public String getDescription() {
+		return "You may take up to 5 points off your attack and put them onto your AC";
+	}
 	
-	public Boolean hasPrerequisites(GildorymCharacter character) {
+	@Override
+	public boolean hasPrerequisites(Character character) {
 		if (character.getIntelligence() >= 13) {
 			return true;
 		}
 		return false;
 	}
 
-	public Boolean isFighterBonusFeat() {
+	@Override
+	public boolean isFighterBonusFeat() {
 		return true;
 	}
 

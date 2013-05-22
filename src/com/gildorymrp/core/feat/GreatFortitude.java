@@ -1,13 +1,33 @@
 package com.gildorymrp.core.feat;
 
-import com.gildorymrp.core.GildorymCharacter;
+import java.util.HashMap;
+import java.util.Map;
 
-public class GreatFortitude extends PassiveFeat {
+import com.gildorymrp.api.plugin.core.Character;
+import com.gildorymrp.api.plugin.core.PassiveFeat;
+import com.gildorymrp.api.plugin.core.Skill;
+
+public class GreatFortitude implements PassiveFeat {
 	
-	public static final String DESCRIPTION = "WIP feat";
+	@Override
+	public String getDescription() {
+		return "WIP feat";
+	}
 	
-	public Boolean hasPrerequisites(GildorymCharacter character) {
+	@Override
+	public boolean hasPrerequisites(Character character) {
 		return false;
+	}
+
+	@Override
+	public boolean isFighterBonusFeat() {
+		return false;
+	}
+
+	@Override
+	public Map<Skill, Integer> getStatBonuses() {
+		Map<Skill, Integer> statBonuses = new HashMap<Skill, Integer>();
+		return statBonuses;
 	}
 
 }

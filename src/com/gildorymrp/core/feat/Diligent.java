@@ -3,12 +3,27 @@ package com.gildorymrp.core.feat;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.gildorymrp.core.Skill;
+import com.gildorymrp.api.plugin.core.Character;
+import com.gildorymrp.api.plugin.core.PassiveFeat;
+import com.gildorymrp.api.plugin.core.Skill;
 
-public class Diligent extends PassiveFeat {
+public class Diligent implements PassiveFeat {
 	
-	public static final String DESCRIPTION = "+2 bonus on Appraise and Decipher script checks";
+	@Override
+	public String getDescription() {
+		return "+2 bonus on Appraise and Decipher script checks";
+	}
+	@Override
+	public boolean hasPrerequisites(Character character) {
+		return true;
+	}
+
+	@Override
+	public boolean isFighterBonusFeat() {
+		return false;
+	}
 	
+	@Override
 	public Map<Skill, Integer> getStatBonuses() {
 		Map<Skill, Integer> statBonuses = new HashMap<Skill, Integer>();
 		statBonuses.put(Skill.APPRAISE, 2);

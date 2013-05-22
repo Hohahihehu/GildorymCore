@@ -1,12 +1,22 @@
 package com.gildorymrp.core.feat;
 
-import com.gildorymrp.core.GildorymCharacter;
+import java.util.HashMap;
+import java.util.Map;
 
-public class ImprovedPreciseShot extends PassiveFeat {
+import com.gildorymrp.api.plugin.core.Character;
+import com.gildorymrp.api.plugin.core.Feat;
+import com.gildorymrp.api.plugin.core.PassiveFeat;
+import com.gildorymrp.api.plugin.core.Skill;
+
+public class ImprovedPreciseShot implements PassiveFeat {
+
+	@Override
+	public String getDescription() {
+		return "Your ranged attacks ignore anything less than total concealment.In addition, your ranged weapons automatically strike grappling opponents.";
+	}
 	
-	public static final String DESCRIPTION = "Your ranged attacks ignore anything less than total concealment.In addition, your ranged weapons automatically strike grappling opponents.";
-	
-	public Boolean hasPrerequisites(GildorymCharacter character) {
+	@Override
+	public boolean hasPrerequisites(Character character) {
 		if (character.getDexterity() >= 19) {
 			if (character.getAttackBonus() >= 11) {
 				for (Feat feat1 : character.getFeats()) {
@@ -23,8 +33,15 @@ public class ImprovedPreciseShot extends PassiveFeat {
 		return false;
 	}
 	
-	public Boolean isFighterBonusFeat() {
+	@Override
+	public boolean isFighterBonusFeat() {
 		return true;
+	}
+
+	@Override
+	public Map<Skill, Integer> getStatBonuses() {
+		Map<Skill, Integer> statBonuses = new HashMap<Skill, Integer>();
+		return statBonuses;
 	}
 
 }

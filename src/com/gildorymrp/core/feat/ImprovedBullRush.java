@@ -1,12 +1,18 @@
 package com.gildorymrp.core.feat;
 
-import com.gildorymrp.core.GildorymCharacter;
+import com.gildorymrp.api.plugin.core.ActiveFeat;
+import com.gildorymrp.api.plugin.core.Character;
+import com.gildorymrp.api.plugin.core.Feat;
 
-public class ImprovedBullRush extends ActiveFeat {
+public class ImprovedBullRush implements ActiveFeat {
 	
-	public static final String DESCRIPTION = "You gain a +4 bonus to any attempt to push back a foe in combat.";
+	@Override
+	public String getDescription() {
+		return "You gain a +4 bonus to any attempt to push back a foe in combat.";
+	}
 	
-	public Boolean hasPrerequisites(GildorymCharacter character) {
+	@Override
+	public boolean hasPrerequisites(Character character) {
 		if (character.getStrength() >= 13) {
 			for (Feat feat : character.getFeats()) {
 				if (feat instanceof PowerAttack) {
@@ -17,7 +23,8 @@ public class ImprovedBullRush extends ActiveFeat {
 		return false;
 	}
 
-	public Boolean isFighterBonusFeat() {
+	@Override
+	public boolean isFighterBonusFeat() {
 		return true;
 	}
 

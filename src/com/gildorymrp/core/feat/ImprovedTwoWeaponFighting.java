@@ -1,12 +1,18 @@
 package com.gildorymrp.core.feat;
 
-import com.gildorymrp.core.GildorymCharacter;
+import com.gildorymrp.api.plugin.core.ActiveFeat;
+import com.gildorymrp.api.plugin.core.Character;
+import com.gildorymrp.api.plugin.core.Feat;
 
-public class ImprovedTwoWeaponFighting extends ActiveFeat {
+public class ImprovedTwoWeaponFighting implements ActiveFeat {
 	
-	public static final String DESCRIPTION = "In addition to the single extra attack you get with an off-hand weapon, you get a second attack, albeit with a -5 penalty.";
+	@Override
+	public String getDescription() {
+		return "In addition to the single extra attack you get with an off-hand weapon, you get a second attack, albeit with a -5 penalty.";
+	}
 	
-	public Boolean hasPrerequisites(GildorymCharacter character) {
+	@Override
+	public boolean hasPrerequisites(Character character) {
 		if (character.getDexterity() >= 17) {
 			if (character.getAttackBonus() >= 6) {
 				for (Feat feat : character.getFeats()) {
@@ -19,7 +25,8 @@ public class ImprovedTwoWeaponFighting extends ActiveFeat {
 		return false;
 	}
 	
-	public Boolean isFighterBonusFeat() {
+	@Override
+	public boolean isFighterBonusFeat() {
 		return true;
 	}
 

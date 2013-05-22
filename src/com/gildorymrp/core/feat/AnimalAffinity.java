@@ -3,17 +3,35 @@ package com.gildorymrp.core.feat;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.gildorymrp.core.Skill;
+import com.gildorymrp.api.plugin.core.Character;
+import com.gildorymrp.api.plugin.core.PassiveFeat;
+import com.gildorymrp.api.plugin.core.Skill;
 
-public class AnimalAffinity extends PassiveFeat {
+public class AnimalAffinity implements PassiveFeat {
 	
-public String DESCRIPTION = "+2 bonus on Handle Animal and Ride checks";
+	@Override
+	public String getDescription() {
+		return "+2 bonus on Handle Animal and Ride checks";
+	}
 	
+	@Override
+	public boolean hasPrerequisites(Character character) {
+		return true;
+	}
+
+	@Override
+	public boolean isFighterBonusFeat() {
+		return false;
+	}
+	
+	@Override
 	public Map<Skill, Integer> getStatBonuses() {
 		Map<Skill, Integer> statBonuses = new HashMap<Skill, Integer>();
 		statBonuses.put(Skill.HANDLE_ANIMAL, 2);
 		statBonuses.put(Skill.RIDE, 2);
 		return statBonuses;
 	}
+
+	
 
 }

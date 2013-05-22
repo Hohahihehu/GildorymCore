@@ -1,19 +1,25 @@
 package com.gildorymrp.core.feat;
 
-import com.gildorymrp.core.GildorymCharacter;
+import com.gildorymrp.api.plugin.core.ActiveFeat;
+import com.gildorymrp.api.plugin.core.Character;
 
-public class Dodge extends ActiveFeat {
+public class Dodge implements ActiveFeat {
 	
-	public static final String DESCRIPTION = "You may get a +1 to your AC against all of one opponent's attacks.";
+	@Override
+	public String getDescription() {
+		return "You may get a +1 to your AC against all of one opponent's attacks.";
+	}
 	
-	public Boolean hasPrerequisites(GildorymCharacter character) {
+	@Override
+	public boolean hasPrerequisites(Character character) {
 		if (character.getDexterity() >= 13) {
 			return true;
 		}
 		return false;
 	}
 
-	public Boolean isFighterBonusFeat() {
+	@Override
+	public boolean isFighterBonusFeat() {
 		return true;
 	}
 

@@ -1,12 +1,18 @@
 package com.gildorymrp.core.feat;
 
-import com.gildorymrp.core.GildorymCharacter;
+import com.gildorymrp.api.plugin.core.ActiveFeat;
+import com.gildorymrp.api.plugin.core.Character;
+import com.gildorymrp.api.plugin.core.Feat;
 
-public class DeflectArrows extends ActiveFeat {
+public class DeflectArrows implements ActiveFeat {
 	
-	public static final String DESCRIPTION = "You can grab one arrow with your fist per round.";
+	@Override
+	public String getDescription() {
+		return "You can grab one arrow with your fist per round.";
+	}
 	
-	public Boolean hasPrerequisites(GildorymCharacter character) {
+	@Override
+	public boolean hasPrerequisites(Character character) {
 		if (character.getDexterity() >= 13) {
 			for (Feat feat : character.getFeats()) {
 				if (feat instanceof ImprovedUnarmedStrike) {
@@ -17,7 +23,8 @@ public class DeflectArrows extends ActiveFeat {
 		return false;
 	}
 
-	public Boolean isFighterBonusFeat() {
+	@Override
+	public boolean isFighterBonusFeat() {
 		return true;
 	}
 
