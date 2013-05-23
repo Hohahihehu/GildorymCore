@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -16,6 +17,8 @@ import com.gildorymrp.api.plugin.core.GildorymCorePlugin;
 
 public class GildorymCore extends JavaPlugin implements GildorymCorePlugin {
 	
+	public static final String PREFIX = "" + ChatColor.GOLD + ChatColor.MAGIC + "|" + ChatColor.RESET + ChatColor.DARK_RED + "GildorymCore" + ChatColor.GOLD + ChatColor.MAGIC + "| " + ChatColor.RESET;
+	
 	private Map<String, Character> activeCharacters = new HashMap<String, Character>();
 	private Map<String, Set<Character>> characters = new HashMap<String, Set<Character>>();
 	
@@ -24,7 +27,8 @@ public class GildorymCore extends JavaPlugin implements GildorymCorePlugin {
 		ConfigurationSerialization.registerClass(CharacterImpl.class);
 		Gildorym.registerCorePlugin(this);
 		SaveDataManager.loadData(this);
-		this.registerListeners(new GildorymClassLevelChangeListener());
+		this.registerListeners(new GildorymClassLevelChangeListener(), new EntityDamageListener());
+		this.getCommand("character").setExecutor(new CharacterCommand(this));
 	}
 	
 	@Override
