@@ -3,3 +3,11 @@ author: Lucariatias
 version: 0.0.1
 main: com.gildorymrp.core.GildorymCore
 depend: [GildorymAPI]
+commands:
+    character:
+        description: Character management commands
+        aliases: [char]
+        usage: /<command> [new|switch|card|set|extenddescription]
+    roll:
+        description: Rolls
+        usage: /<command> [roll]

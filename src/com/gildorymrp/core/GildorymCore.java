@@ -29,6 +29,7 @@ public class GildorymCore extends JavaPlugin implements GildorymCorePlugin {
 		SaveDataManager.loadData(this);
 		this.registerListeners(new GildorymClassLevelChangeListener(), new EntityDamageListener());
 		this.getCommand("character").setExecutor(new CharacterCommand(this));
+		this.getCommand("roll").setExecutor(new RollCommand());
 	}
 	
 	@Override
