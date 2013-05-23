@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -20,6 +21,7 @@ public class GildorymCore extends JavaPlugin implements GildorymCorePlugin {
 	
 	@Override
 	public void onEnable() {
+		ConfigurationSerialization.registerClass(CharacterImpl.class);
 		Gildorym.registerCorePlugin(this);
 		SaveDataManager.loadData(this);
 		this.registerListeners(new GildorymClassLevelChangeListener());
