@@ -1,4 +1,4 @@
 GildorymCore
 ============
 
-Core plugin or Gildorym (WIP)
+Core plugin for Gildorym (WIP)
