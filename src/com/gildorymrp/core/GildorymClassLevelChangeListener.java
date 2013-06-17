@@ -12,10 +12,10 @@ public class GildorymClassLevelChangeListener implements Listener {
 	
 	@EventHandler
 	public void onGildorymClassLevelChange(GildorymClassLevelChangeEvent event) {
-		Character char = event.getCharacter();
+		Character chara = event.getCharacter();
 		GildorymClassesPlugin plugin = Gildorym.getClassesPlugin();
 		
-		char.setMaxHealth(plugin.getHpBonus(plugin.getClass(char)) * plugin.getLevel(char));
+		chara.setMaxHealth(plugin.getHpBonus(plugin.getClass(chara)) * plugin.getLevel(chara));
 	}
 
 }
